@@ -1,4 +1,6 @@
 #include "SQLiteWrapper.h"
+
+#if __has_include(<google/protobuf/message.h>)
 #include <google/protobuf/message.h>
 
 // This example illustrates how to create user-defined serialization and
@@ -34,3 +36,5 @@ void example (const std::string &name,
     = R"(insert into my_table (my_name, my_column) values (?1, ?2))";
   db::query<insert_query>(name, new_message);
 }
+
+#endif
